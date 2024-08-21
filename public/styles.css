@@ -1,0 +1,135 @@
+body {
+    display: flex;
+    margin: 0;
+
+}
+
+#projectTable {
+    border-collapse: collapse;
+
+}
+
+th {
+    border: 2px solid black;
+    padding: 5px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+}
+
+#extraTop th {
+    top: 30px;
+}
+
+td {
+    padding: 5px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+#selected {
+    border: 2px solid red;
+}
+
+#startPosition {
+    border: 2px solid black;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: lightblue;
+}
+
+#buttons button {
+    width: 75px;
+    transition: all 0.3s ease;
+    position: sticky;
+
+}
+
+#buttons button:hover {
+    transform: scale(1.1);
+}
+
+#showAddProjectDiv {
+    top: 10px;
+}
+
+#showAddEmployeeDiv {
+    top: 57.2px;
+}
+
+#showRemoveEmployeeDiv {
+    top: 104.4px;
+}
+
+.editDiv {
+    position: absolute;
+    /* Eller 'fixed' hvis du vil at den skal forbli på skjermen ved scrolling */
+    top: 50%;
+    /* Plasserer div-en i midten vertikalt */
+    left: 50%;
+    /* Plasserer div-en i midten horisontalt */
+    transform: translate(-50%, -50%);
+    /* Flytter div-en for å få midtpunktet akkurat på skjermen */
+    background-color: white;
+    /* Sett en bakgrunnsfarge så det blir lett å se */
+    padding: 20px;
+    border: 2px solid black;
+    z-index: 9;
+    /* Høyere tall sikrer at den vises over andre elementer */
+
+}
+
+.controlButtons {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+input {
+    margin-left: 5px;
+}
+
+#employeeDiv {
+    padding: 5px;
+}
+
+#employeeDiv div {
+    transition: all 0.3s ease;
+    /* Smooth transition */
+    padding: 5px;
+}
+
+.selected {
+    transition: all 0.3s ease;
+    /* Smooth transition */
+    transform: scale(1.1);
+}
+
+#employeeDiv div:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+/* Draggable elementer stil */
+
+
+.draggable {
+    padding: 10px;
+
+    cursor: grab;
+    border-radius: 5%;
+}
+
+.draggable:active {
+    cursor: grabbing;
+}
+
+.weekNumber {
+    text-align: center;
+}

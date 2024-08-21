@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <div id="buttons">
+    <button id="showAddProjectDiv">Legg til prosjekt</button>
+    <button id="showAddEmployeeDiv">Legg til ansatt</button>
+    <button id="showRemoveEmployeeDiv">Fjern Ansatte</button>
+</div>
+    <table id="projectTable">
+
+        <tr id="extraTop">
+            <th></th>
+            <th>Mandag</th>
+            <th>Tirsdag</th>
+            <th>Onsdag</th>
+            <th>Torsdag</th>
+            <th>Fredag</th>
+            <th>Mandag</th>
+            <th>Tirsdag</th>
+            <th>Onsdag</th>
+            <th>Torsdag</th>
+            <th>Fredag</th>
+            <th>Mandag</th>
+            <th>Tirsdag</th>
+            <th>Onsdag</th>
+            <th>Torsdag</th>
+            <th>Fredag</th>
+        </tr>
+
+    </table>
+
+    <div id="temporaryStorageForDraggables"></div>
+
+    <div id="addProjectDiv" class="editDiv" style="display: none;">
+        <p>Skriv inn navnet på prosjektet du vil legge til</p>
+        <input id="projectName" type="text" placeholder="prosjekt">
+        <div class="controlButtons"> 
+        <button id="addProject">Legg til</button>
+        <button id="cancelAddProject">Avbryt</button>
+        </div>
+    </div>
+
+    <div id="addEmployeeDiv" class="editDiv" style="display: none;">
+        <p>Skriv inn navnet på den ansatte du vil legge til</p>
+
+        <input id="employeeName" type="text" placeholder="ansatt">
+        <div class="controlButtons"> 
+        <button id="addEmployee">Legg til</button>
+        <button id="cancelAddEmployee">Avbryt</button>
+        </div>
+    </div>
+
+    <div id="removeEmployeeDiv" class="editDiv" style="display: none;">
+        <p>Klikk på de ansatte du vil fjerne</p>
+        <div id="employeeDiv"></div>
+        <div class="controlButtons"> 
+            <button id="removeEmployeeButton">Fjern</button>
+            <button id="cancelEmployeeRemoval">Avbryt</button>
+        </div>
+
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
