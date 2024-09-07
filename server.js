@@ -168,6 +168,7 @@ app.post('/positions', (req, res) => {
         }
         res.send('Positions saved');
     });
+    updateGithubFile();
 });
 
 app.listen(PORT, () => {
