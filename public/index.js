@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     row.appendChild(firstCell);
 
     //loading weeks
-    fetch('http://localhost:3000/weekNumber')
+    fetch('http://localhost:10000/weekNumber')
         .then(response => response.json())
         .then(weeks => {
             console.log(weeks);
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loadGrid = async () => {
         const data = await getData();
 
-        const response = await fetch("http://localhost:3000/weekNumber");
+        const response = await fetch("http://localhost:10000/weekNumber");
         const weeks = await response.json();
         console.log(weeks);
         const currentWeek = await weeks.currentWeek;
@@ -290,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const postUpdates = (data) => {
-        fetch('http://localhost:3000/positions', {
+        fetch('http://localhost:10000/positions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
         , newCellId, //0 = projectname and 1 = cellIndex
         draggableId //Kristian0 eller Alf Magne11
     ) => {
-        fetch('http://localhost:3000/positions')
+        fetch('http://localhost:10000/positions')
             .then(response => response.json())
             .then(data => {
                 const prevProjectName = previousCellId[0];
@@ -389,7 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const getData = async () => {
-        const response = await fetch('http://localhost:3000/positions');
+        const response = await fetch('http://localhost:10000/positions');
         const data = await response.json();
         return data;
     }
