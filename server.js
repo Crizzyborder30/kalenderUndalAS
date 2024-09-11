@@ -9,7 +9,7 @@ const { getISOWeek, addWeeks } = require('date-fns');
 
 
 const app = express();
-const PORT = process.env.PORT || 3000;;
+const port = process.env.PORT || 3000;;
 const dataFile = 'data.json';
 
 app.use(cors());
@@ -172,7 +172,7 @@ app.post('/positions', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on http://localhost:${port}`);
 });
 
 
