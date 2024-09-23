@@ -171,7 +171,7 @@ app.post('/positions', (req, res) => {
     updateGithubFile();
 });
 
-app.listen(PORT, () => {
+app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
 
