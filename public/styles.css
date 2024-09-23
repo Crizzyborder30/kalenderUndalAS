@@ -7,6 +7,12 @@ body {
 
 #projectTable {
     border-collapse: collapse;
+    top: 50%;
+    /* Plasserer div-en i midten vertikalt */
+    left: 50%;
+    /* Plasserer div-en i midten horisontalt */
+    transform: translate(-50%, -50%);
+    /* Flytter div-en for å få midtpunktet akkurat på skjermen */
 
 }
 
@@ -36,18 +42,29 @@ td {
     border: 2px solid black;
 }
 
-#buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    background-color: lightblue;
+
+
+#buttons{
+    
+        display: flex;
+        /*gjør navigasjonsbaren til en flex-container slik at jeg kan utforme den slik jeg ønsker*/
+        position: fixed;
+        /*gjør at navigasjonsbaren sitter på toppen av nettsida selv når man scroller*/
+        top: 0;
+        /*det sitte helt i toppen uten noe mellomrom*/
+        width: 100%;
+        /*dekker hele bredden på sida*/
+        align-items: center;
+        border-bottom: 2px solid black;
+
 }
+
 
 #buttons button {
     width: 75px;
     transition: all 0.3s ease;
     position: sticky;
+    background-color: bisque;
 
 }
 
