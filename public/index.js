@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    const port = window.location.origin;
 
     const table = document.getElementById("projectTable");
     const row = table.insertRow(0);
@@ -7,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     row.appendChild(firstCell);
 
     //loading weeks
-    fetch(`${window.location.origin}/weekNumber`)
+    fetch(`${port}/weekNumber`)
         .then(response => response.json())
         .then(weeks => {
             console.log(weeks);
@@ -105,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loadGrid = async () => {
         const data = await getData();
 
-        const response = await fetch(`${window.location.origin}/weekNumber`);
+        const response = await fetch(`${port}/weekNumber`);
         const weeks = await response.json();
         console.log(weeks);
         const currentWeek = await weeks.currentWeek;
@@ -290,7 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const postUpdates = (data) => {
-        fetch(`${window.location.origin}/positions`, {
+        fetch(`${port}/positions`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -313,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
         , newCellId, //0 = projectname and 1 = cellIndex
         draggableId //Kristian0 eller Alf Magne11
     ) => {
-        fetch(`${window.location.origin}/positions`)
+        fetch(`${port}/positions`)
             .then(response => response.json())
             .then(data => {
                 const prevProjectName = previousCellId[0];
@@ -389,7 +390,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const getData = async () => {
-        const response = await fetch(`${window.location.origin}/positions`);
+        const response = await fetch(`${port}/positions`);
         const data = await response.json();
         return data;
     }

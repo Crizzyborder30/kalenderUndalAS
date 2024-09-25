@@ -1,20 +1,19 @@
 body {
     display: flex;
+    justify-content: center; /* Sentrerer horisontalt */
+    align-items: center; /* Sentrerer vertikalt */
+    height: 100vh; /* Sørger for at body fyller hele skjermen */
     margin: 0;
-    background-color: lightblue;
-
+    background-color:khaki;
 }
 
 #projectTable {
     border-collapse: collapse;
-    top: 50%;
-    /* Plasserer div-en i midten vertikalt */
-    left: 50%;
-    /* Plasserer div-en i midten horisontalt */
-    transform: translate(-50%, -50%);
-    /* Flytter div-en for å få midtpunktet akkurat på skjermen */
-
+    background-color: white; /* Bare for synlighet */
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Lett skygge for stil */
 }
+
 
 th {
     border: 2px solid black;
@@ -55,21 +54,23 @@ td {
         width: 100%;
         /*dekker hele bredden på sida*/
         align-items: center;
-        border-bottom: 2px solid black;
+        justify-content: center;
 
 }
 
 
 #buttons button {
-    width: 75px;
-    transition: all 0.3s ease;
+    width: 100%;
+    transition: all 0.5s ease;
     position: sticky;
-    background-color: bisque;
+    background-color: yellow;
+    height: 40px;
+    font-size: large;
 
 }
 
 #buttons button:hover {
-    transform: scale(1.1);
+    background-color: white;
 }
 
 #showAddProjectDiv {
