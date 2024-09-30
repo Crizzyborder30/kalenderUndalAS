@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const port = window.location.origin;
+    const port = window.location.origin; //"http://localhost:3000"
 
     const table = document.getElementById("projectTable");
     const row = table.insertRow(0);
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const firstCell = document.createElement("td");
                 const removeRowButton = document.createElement("button");
                 removeRowButton.id = "removeButton";
-                removeRowButton.innerHTML = "Fjern";
+                removeRowButton.innerHTML = "X";
                 firstCell.innerHTML = projectName;
                 firstCell.appendChild(removeRowButton);
                 firstCell.classList.add("firstCell");
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 row.appendChild(firstCell);
                 const backgroundColor = project.projectColor + "99";
                 row.style =
-                    `background-color: ${backgroundColor}; border: 2px solid ${project.projectColor}`;
+                    `background-color: ${backgroundColor}; border-left: 2px solid black; border-bottom: 2px solid ${project.projectColor};`;
 
                 removeRowButton.onclick = function () {
                     removeProject(removeRowButton); // Send knappen selv som argument
