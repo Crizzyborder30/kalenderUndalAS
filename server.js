@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const fs = require('fs');
-
+const fs = require('fs').promises; // Bruker fs.promises for å støtte async/await
+const axios = require('axios');
 const { getISOWeek, addWeeks } = require('date-fns');
 
 
@@ -19,8 +19,8 @@ app.use(bodyParser.json());
 // GitHub repo detaljer
 const GITHUB_REPO = 'Crizzyborder30/kalenderUndalAS';
 const GITHUB_TOKEN = process.env.gitToken;
-//const FILE_PATH = 'path/to/your/datafile.json';
 const BRANCH = 'main';
+
 const updateGithubFile = async () => {
     const url = `https://api.github.com/repos/${GITHUB_REPO}/contents/${dataFile}`;
     const headers = {
@@ -34,6 +34,7 @@ const updateGithubFile = async () => {
         const sha = response.data.sha;
         // Bruk readData for å hente filinnholdet
         const data = await readData();
+        console.log(data);
         if (data === null) {
             throw new Error('Filen ble ikke funnet');
         }
@@ -149,26 +150,40 @@ app.get('/weekNumber', (req, res) => {
     res.send(weekNumbers);
 });
 
+// Asynkron funksjon for å lese data
+async function readData() {
+    try {
+        const data = await fs.readFile(dataFile, 'utf8'); // Vent til filen er lest
+        return JSON.parse(data); // Returner parsede JSON-data
+    } catch (err) {
+        console.error('Error reading data:', err);
+        throw err; // Kast feilen hvis noe går galt
+    }
+}
 
 // Hente posisjoner
-app.get('/positions', (req, res) => {
-    fs.readFile(dataFile, (err, data) => {
-        if (err) {
-            return res.status(500).send('Error reading data');
-        }
-        res.send(JSON.parse(data));
-    });
+app.get('/positions', async (req, res) => { // Merk funksjonen som async
+    try {
+        const data = await readData(); // Vent til dataene er lest
+        res.send(data); // Send dataene som svar
+    } catch (error) {
+        res.status(500).send('Error retrieving positions'); // Håndter feil
+    }
 });
 
 // Lagre posisjoner
-app.post('/positions', (req, res) => {
-    fs.writeFile(dataFile, JSON.stringify(req.body), (err) => {
-        if (err) {
-            return res.status(500).send('Error writing data');
-        }
+app.post('/positions', async (req, res) => { // Merk funksjonen som async
+    try {
+        // Skriv data til filen asynkront
+        await fs.writeFile(dataFile, JSON.stringify(req.body, null, 2), 'utf8'); // 'null, 2' gjør JSON lettere å lese
         res.send('Positions saved');
-    });
-    updateGithubFile();
+
+        // Kall til å oppdatere GitHub-filen
+        await updateGithubFile(); // For å vente på at oppdateringen er ferdig
+    } catch (err) {
+        console.error('Error writing data:', err);
+        res.status(500).send('Error writing data');
+    }
 });
 
 app.listen(port, () => {
