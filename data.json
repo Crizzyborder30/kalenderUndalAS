@@ -1,1 +1,34 @@
-{"savedWeek":40,"employees":[{"name":"Alf","code":"rxyxfwxy","color":"#20b2aa"},{"name":"Kristan","code":"wdrycdwc","color":"#7fffd4"}],"projects":[{"projectName":"Spliderhauggata 28","projectColor":"#bc8f8f","projectEmployees":[[]]},{"projectName":"test","projectColor":"#c0c0c0","projectEmployees":[]},{"projectName":"k","projectColor":"#7fff00","projectEmployees":[]}]}
+{
+  "savedWeek": 40,
+  "employees": [
+    {
+      "name": "Alf",
+      "code": "rxyxfwxy",
+      "color": "#20b2aa"
+    },
+    {
+      "name": "Kristan",
+      "code": "wdrycdwc",
+      "color": "#7fffd4"
+    }
+  ],
+  "projects": [
+    {
+      "projectName": "Spliderhauggata 28",
+      "projectColor": "#bc8f8f",
+      "projectEmployees": [
+        []
+      ]
+    },
+    {
+      "projectName": "oki",
+      "projectColor": "#ba55d3",
+      "projectEmployees": []
+    },
+    {
+      "projectName": "plis",
+      "projectColor": "#bdb76b",
+      "projectEmployees": []
+    }
+  ]
+}
