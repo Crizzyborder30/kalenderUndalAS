@@ -30,7 +30,14 @@
     {
       "projectName": "oki",
       "projectColor": "#ba55d3",
-      "projectEmployees": []
+      "projectEmployees": [
+        null,
+        null,
+        null,
+        [
+          "xklnjiaey"
+        ]
+      ]
     },
     {
       "projectName": "plis",
