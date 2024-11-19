@@ -1,5 +1,5 @@
 {
-  "savedWeek": 40,
+  "savedWeek": 47,
   "employees": [
     {
       "name": "Alf",
@@ -10,20 +10,23 @@
       "name": "Kristan",
       "code": "wdrycdwc",
       "color": "#7fffd4"
-    },
-    {
-      "name": "Thang",
-      "code": "jntpkey",
-      "color": "#8fbc8f"
     }
   ],
   "projects": [
     {
       "projectName": "Spliderhauggata 28",
       "projectColor": "#bc8f8f",
-      "projectEmployees": [
-        []
-      ]
+      "projectEmployees": []
+    },
+    {
+      "projectName": "oki",
+      "projectColor": "#ba55d3",
+      "projectEmployees": []
+    },
+    {
+      "projectName": "plis",
+      "projectColor": "#bdb76b",
+      "projectEmployees": []
     }
   ]
 }
